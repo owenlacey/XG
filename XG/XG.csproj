@@ -12,5 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Configuration\Models" />
+    <Folder Include="Areas\Configuration\Views\Teams\" />
   </ItemGroup>
 </Project>

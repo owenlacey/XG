@@ -11,9 +11,10 @@ using XG.Data;
 namespace XG.Data.Migrations
 {
     [DbContext(typeof(XgContext))]
-    partial class XgContextModelSnapshot : ModelSnapshot
+    [Migration("20170930221322_TeamEntity")]
+    partial class TeamEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

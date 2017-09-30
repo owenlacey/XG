@@ -24,45 +24,46 @@ namespace XG
 		public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
 		{
-      services.AddDbContext<XgContext>(options =>
+            services.AddDbContext<XgContext>(options =>
                                        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
       
-      services.AddTransient(typeof(IBaseService<>), typeof(BaseService<>));
-      services.AddTransient<ICompetitionService, CompetitionService>();
-		  services.AddTransient<IMatchService, MatchService>();
-		  services.AddTransient<ISeasonService, SeasonService>();
+            services.AddTransient(typeof(IBaseService<>), typeof(BaseService<>));
+            services.AddTransient<ICompetitionService, CompetitionService>();
+    		services.AddTransient<IMatchService, MatchService>();
+			services.AddTransient<ISeasonService, SeasonService>();
+            services.AddTransient<ITeamService, TeamService>();
 
-      services.AddMvc();
-    }
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-    {
-        loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-        loggerFactory.AddDebug();
-
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-            app.UseBrowserLink();
-        }
-        else
-        {
-            app.UseExceptionHandler("/Home/Error");
+            services.AddMvc();
         }
 
-        app.UseStaticFiles();
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
 
-        app.UseMvc(routes =>
-		{
-			routes.MapRoute("Configuration", "{area:exists}/{controller=Configuration}/{action=Index}/{id?}");
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
 
-            routes.MapRoute(
-                name: "default",
-                template: "{controller=Home}/{action=Index}/{id?}");
-        });
-    }
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+    		{
+    			routes.MapRoute("Configuration", "{area:exists}/{controller=Configuration}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+        }
     }
 }

@@ -20,13 +20,15 @@ namespace XG.Data
 
 			modelBuilder.ApplyConfiguration(new CompetitionMap());
             modelBuilder.ApplyConfiguration(new MatchMap());
-            modelBuilder.ApplyConfiguration(new SeasonMap());
+			modelBuilder.ApplyConfiguration(new SeasonMap());
+			modelBuilder.ApplyConfiguration(new TeamMap());
 
 			base.OnModelCreating(modelBuilder);
         }
 
 		public DbSet<Match> Matches { get; set; }
 		public DbSet<Season> Seasons { get; set; }
-        public DbSet<Competition> Competitions { get; set; }
+		public DbSet<Competition> Competitions { get; set; }
+		public DbSet<Team> Teams { get; set; }
 	}
 }
