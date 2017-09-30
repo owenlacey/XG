@@ -1,7 +1,7 @@
-﻿using System;
+﻿
 namespace XG.Data.Entities
 {
-    public class Competition
+    public class Competition: XgEntity
     {
         public int CompetitionId { get; set; }
         public string Name { get; set; }

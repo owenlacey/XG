@@ -8,7 +8,7 @@ namespace XG.Data.Mappings
 	{
 		public void Configure(EntityTypeBuilder<Season> entityTypeBuilder)
 		{
-			entityTypeBuilder.ToTable("Seasons", XgContext.Schema);
+			entityTypeBuilder.ToTable("Season", XgContext.Schema);
 
 			entityTypeBuilder.Property(pt => pt.Name)
 				 .IsRequired();

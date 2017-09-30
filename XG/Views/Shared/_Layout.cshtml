@@ -1,3 +1,4 @@
+@using Microsoft.AspNetCore.Mvc.Routing
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["XG"] - XG</title>
 
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/lib/font-awesome-4.7.0/css/font-awesome.min.css">
     <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
-    <environment names="Staging,Production">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+  <environment names="Staging,Production">
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+          asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+  </environment>
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -29,10 +31,16 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">XG</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cogs"></i> Configure
+                        <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a asp-area="Configuration" asp-controller="Seasons" asp-action="Index"><i class="fa fa-calendar"></i> Seasons</a></li>
+                        <li><a asp-area="Configuration" asp-controller="Competitions" asp-action="Index"><i class="fa fa-trophy"></i> Competitions</a></li>
+                        <li><a asp-area="Configuration" asp-controller="Matches" asp-action="Index"><i class="fa fa-futbol-o"></i> Matches</a></li>
+                      </ul>
+                    </li>
                 </ul>
             </div>
         </div>

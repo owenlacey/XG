@@ -1,12 +1,8 @@
-﻿using System;
+﻿using XG.Data;
 using XG.Business.Services.Interfaces;
 namespace XG.Business.Services
 {
-    public class BaseService: IBaseService
+    public class BaseService<T>: IBaseService<T> where T : XgEntity, new()
     {
-        public string GetTitle()
-        {
-            return "22 green horses";
-        }
     }
 }
