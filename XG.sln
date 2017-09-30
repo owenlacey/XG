@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XG", "XG\XG.csproj", "{FE082A77-FC43-49BE-9474-D72ADBB92CFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XG.Business", "XG.Business\XG.Business.csproj", "{2900C289-14C0-4771-A703-5762568BD2A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XG.Data", "XG.Data\XG.Data.csproj", "{F5DC3043-52B6-484C-A158-ED2EB68561E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE082A77-FC43-49BE-9474-D72ADBB92CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE082A77-FC43-49BE-9474-D72ADBB92CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE082A77-FC43-49BE-9474-D72ADBB92CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE082A77-FC43-49BE-9474-D72ADBB92CFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2900C289-14C0-4771-A703-5762568BD2A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2900C289-14C0-4771-A703-5762568BD2A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2900C289-14C0-4771-A703-5762568BD2A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2900C289-14C0-4771-A703-5762568BD2A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5DC3043-52B6-484C-A158-ED2EB68561E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5DC3043-52B6-484C-A158-ED2EB68561E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5DC3043-52B6-484C-A158-ED2EB68561E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5DC3043-52B6-484C-A158-ED2EB68561E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal

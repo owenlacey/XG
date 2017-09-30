@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{80162F51-A82C-4FA9-8450-04DECEACD0C1}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>XG.Business</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Services\BaseService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Interfaces\IBaseService.cs" />
+  </ItemGroup>
+</Project>
