@@ -13,6 +13,7 @@ namespace XG
 			IConfigurationRoot configuration = new ConfigurationBuilder()
 				.SetBasePath(Directory.GetCurrentDirectory())
 				.AddJsonFile("appsettings.json")
+				.AddJsonFile("tsconfig.json")
 				.Build();
 
 			var builder = new DbContextOptionsBuilder<XgContext>();

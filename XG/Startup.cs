@@ -42,7 +42,7 @@ namespace XG
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+			loggerFactory.AddDebug();
 
             if (env.IsDevelopment())
             {
@@ -53,7 +53,8 @@ namespace XG
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

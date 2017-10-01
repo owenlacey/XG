@@ -5,6 +5,8 @@
   <ItemGroup>
     <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="BuildBundlerMinifier-Typescript" Version="2.1.258" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XG.Data\XG.Data.csproj" />
@@ -13,5 +15,16 @@
   <ItemGroup>
     <Folder Include="Areas\Configuration\Models" />
     <Folder Include="Areas\Configuration\Views\Teams\" />
+    <Folder Include="wwwroot\Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="wwwroot\js\test.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\js\site.js" />
+    <Content Remove="wwwroot\js\site.min.js" />
+    <Content Remove="wwwroot\ts\site.js" />
+    <Content Remove="wwwroot\ts\site.min.js" />
+    <Content Remove="wwwroot\ts\test.js" />
   </ItemGroup>
 </Project>
