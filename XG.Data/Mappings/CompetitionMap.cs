@@ -10,8 +10,12 @@ namespace XG.Data.Mappings
 		{
             entityTypeBuilder.ToTable("Competitions", XgContext.Schema);
 
-            entityTypeBuilder.Property(pt => pt.Name)
+            entityTypeBuilder.Property(c => c.Name)
                  .IsRequired();
+
+            entityTypeBuilder.HasMany(c => c.CompetitionInstances)
+							 .WithOne(ci => ci.Competition)
+                             .HasForeignKey(ci => ci.CompetitionInstanceId);
 		}
 	}
 }

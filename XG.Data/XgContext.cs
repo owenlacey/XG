@@ -22,6 +22,7 @@ namespace XG.Data
             modelBuilder.ApplyConfiguration(new MatchMap());
 			modelBuilder.ApplyConfiguration(new SeasonMap());
 			modelBuilder.ApplyConfiguration(new TeamMap());
+            modelBuilder.ApplyConfiguration(new CompetitionInstanceMap());
 
 			base.OnModelCreating(modelBuilder);
         }
@@ -30,5 +31,9 @@ namespace XG.Data
 		public DbSet<Season> Seasons { get; set; }
 		public DbSet<Competition> Competitions { get; set; }
 		public DbSet<Team> Teams { get; set; }
+
+        //join tables
+        public DbSet<CompetitionInstance> CompetitionInstances { get; set; }
+        public DbSet<CompetitionParticipation> TeamParticipations { get; set; }
 	}
 }

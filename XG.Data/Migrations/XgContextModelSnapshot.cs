@@ -29,13 +29,35 @@ namespace XG.Data.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<int>("SeasonId");
-
                     b.HasKey("CompetitionId");
 
-                    b.HasIndex("SeasonId");
-
                     b.ToTable("Competitions","XG");
+                });
+
+            modelBuilder.Entity("XG.Data.Entities.CompetitionInstance", b =>
+                {
+                    b.Property<int>("CompetitionInstanceId");
+
+                    b.Property<int>("CompetitionId");
+
+                    b.Property<int>("SeasonId");
+
+                    b.HasKey("CompetitionInstanceId");
+
+                    b.ToTable("CompetitionInstances","XG");
+                });
+
+            modelBuilder.Entity("XG.Data.Entities.CompetitionParticipation", b =>
+                {
+                    b.Property<int>("CompetitionParticipationId");
+
+                    b.Property<int>("CompetitionInstanceId");
+
+                    b.Property<int>("TeamId");
+
+                    b.HasKey("CompetitionParticipationId");
+
+                    b.ToTable("TeamParticipations");
                 });
 
             modelBuilder.Entity("XG.Data.Entities.Match", b =>
@@ -73,11 +95,29 @@ namespace XG.Data.Migrations
                     b.ToTable("Teams","XG");
                 });
 
-            modelBuilder.Entity("XG.Data.Entities.Competition", b =>
+            modelBuilder.Entity("XG.Data.Entities.CompetitionInstance", b =>
                 {
+                    b.HasOne("XG.Data.Entities.Competition", "Competition")
+                        .WithMany("CompetitionInstances")
+                        .HasForeignKey("CompetitionInstanceId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("XG.Data.Entities.Season", "Season")
-                        .WithMany()
-                        .HasForeignKey("SeasonId")
+                        .WithMany("CompetitionInstances")
+                        .HasForeignKey("CompetitionInstanceId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("XG.Data.Entities.CompetitionParticipation", b =>
+                {
+                    b.HasOne("XG.Data.Entities.CompetitionInstance", "CompetitionInstance")
+                        .WithMany("TeamsTakingPart")
+                        .HasForeignKey("CompetitionParticipationId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("XG.Data.Entities.Team", "Team")
+                        .WithMany("CompetitionParticipations")
+                        .HasForeignKey("CompetitionParticipationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

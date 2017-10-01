@@ -12,6 +12,10 @@ namespace XG.Data.Mappings
 
 			entityTypeBuilder.Property(pt => pt.Name)
 				 .IsRequired();
+
+            entityTypeBuilder.HasMany(t => t.CompetitionParticipations)
+							 .WithOne(cp => cp.Team)
+							 .HasForeignKey(ci => ci.CompetitionParticipationId);
 		}
     }
 }
